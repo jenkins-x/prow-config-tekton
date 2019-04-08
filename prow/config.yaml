@@ -20,6 +20,13 @@ branch-protection:
           required_status_checks:
             contexts:
             - promotion-build
+        jx:
+          required_status_checks:
+            contexts:
+              ["bdd","integration","lint"]
+        jenkins-x-builders-base-image:
+          required_status_checks:
+            contexts: ["tekton"]
   protect-tested-repos: true
 deck:
   spyglass: {}
@@ -55,6 +62,18 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/jx:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jenkins-x-builders-base-image:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 presubmits:
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
@@ -84,6 +103,32 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jx:
+  - agent: tekton
+    always_run: true
+    context: bdd
+    name: bdd
+    rerun_command: /test bdd
+    trigger: (?m)^/test( all| bdd),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: integration
+    name: integration
+    rerun_command: /test integration
+    trigger: (?m)^/test( all| integration),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: lint
+    name: lint
+    rerun_command: /test lint
+    trigger: (?m)^/test( all| lint),?(s+|$)
+  jenkins-x/jenkins-x-builders-base-image:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 prowjob_namespace: jx
 push_gateway: {}
 sinker: {}
@@ -103,6 +148,8 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x-charts/prow
+    - jenkins-x/jenkins-x-builders-base-image
+    - jenkins-x/jx
   - labels:
     - approved
     missingLabels:
@@ -113,6 +160,8 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x-charts/prow
+    - jenkins-x/jenkins-x-builders-base-image
+    - jenkins-x/jx
   - missingLabels:
     - do-not-merge
     - do-not-merge/hold
