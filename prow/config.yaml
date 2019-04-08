@@ -1,0 +1,97 @@
+branch-protection:
+  orgs:
+    jenkins-x:
+      repos:
+        environment-tekton-mole-dev:
+          required_status_checks:
+            contexts:
+            - promotion-build
+        environment-tekton-mole-production:
+          required_status_checks:
+            contexts:
+            - promotion-build
+        environment-tekton-mole-staging:
+          required_status_checks:
+            contexts:
+            - promotion-build
+  protect-tested-repos: true
+deck:
+  spyglass: {}
+gerrit: {}
+owners_dir_blacklist:
+  default: null
+  repos: null
+plank: {}
+pod_namespace: jx
+postsubmits:
+  jenkins-x/environment-tekton-mole-dev:
+  - agent: tekton
+    branches:
+    - master
+    context: ""
+    name: promotion
+  jenkins-x/environment-tekton-mole-production:
+  - agent: tekton
+    branches:
+    - master
+    context: ""
+    name: promotion
+  jenkins-x/environment-tekton-mole-staging:
+  - agent: tekton
+    branches:
+    - master
+    context: ""
+    name: promotion
+presubmits:
+  jenkins-x/environment-tekton-mole-dev:
+  - agent: tekton
+    always_run: true
+    context: promotion-build
+    name: promotion-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+  jenkins-x/environment-tekton-mole-production:
+  - agent: tekton
+    always_run: true
+    context: promotion-build
+    name: promotion-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+  jenkins-x/environment-tekton-mole-staging:
+  - agent: tekton
+    always_run: true
+    context: promotion-build
+    name: promotion-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+prowjob_namespace: jx
+push_gateway: {}
+sinker: {}
+tide:
+  context_options:
+    from-branch-protection: true
+    required-if-present-contexts: null
+    skip-unknown-contexts: false
+  queries:
+  - labels:
+    - approved
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x/dummy
+  - missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x/dummy-environment
+    - jenkins-x/environment-tekton-mole-production
+    - jenkins-x/environment-tekton-mole-staging
+    - jenkins-x/environment-tekton-mole-dev
+  target_url: https://deck.infra.jrawlings.co.uk
