@@ -6,6 +6,8 @@ approve:
   - jenkins-x/environment-tekton-mole-staging
   - jenkins-x/environment-tekton-mole-dev
   - jenkins-x-charts/prow
+  - jenkins-x/jx
+  - jenkins-x/jenkins-x-builders-base-image
 blunderbuss: {}
 cat: {}
 cherry_pick_unapproved: {}
@@ -88,6 +90,36 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jenkins-x-builders-base-image:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jx:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
 requiresig: {}
 sigmention: {}
 slack: {}
@@ -97,6 +129,8 @@ triggers:
   - jenkins-x/environment-tekton-mole-staging
   - jenkins-x/environment-tekton-mole-dev
   - jenkins-x-charts/prow
+  - jenkins-x/jx
+  - jenkins-x/jenkins-x-builders-base-image
   trusted_org: jenkins-x
   only_org_members: true
 welcome:
