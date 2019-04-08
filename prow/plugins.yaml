@@ -1,16 +1,11 @@
 approve:
 - lgtm_acts_as_approve: true
+  require_self_approval: true
   repos:
   - jenkins-x/environment-tekton-mole-production
-  require_self_approval: true
-- lgtm_acts_as_approve: true
-  repos:
   - jenkins-x/environment-tekton-mole-staging
-  require_self_approval: true
-- lgtm_acts_as_approve: true
-  repos:
   - jenkins-x/environment-tekton-mole-dev
-  require_self_approval: true
+  - jenkins-x-charts/prow
 blunderbuss: {}
 cat: {}
 cherry_pick_unapproved: {}
@@ -78,18 +73,31 @@ plugins:
   - heart
   - cat
   - override
+  jenkins-x-charts/prow:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
 requiresig: {}
 sigmention: {}
 slack: {}
 triggers:
 - repos:
   - jenkins-x/environment-tekton-mole-production
-  trusted_org: jenkins-x
-- repos:
   - jenkins-x/environment-tekton-mole-staging
-  trusted_org: jenkins-x
-- repos:
   - jenkins-x/environment-tekton-mole-dev
+  - jenkins-x-charts/prow
   trusted_org: jenkins-x
+  only_org_members: true
 welcome:
 - message_template: Welcome
