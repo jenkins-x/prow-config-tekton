@@ -1,0 +1,95 @@
+approve:
+- lgtm_acts_as_approve: true
+  repos:
+  - jenkins-x/environment-tekton-mole-production
+  require_self_approval: true
+- lgtm_acts_as_approve: true
+  repos:
+  - jenkins-x/environment-tekton-mole-staging
+  require_self_approval: true
+- lgtm_acts_as_approve: true
+  repos:
+  - jenkins-x/environment-tekton-mole-dev
+  require_self_approval: true
+blunderbuss: {}
+cat: {}
+cherry_pick_unapproved: {}
+config_updater:
+  maps:
+    prow/config.yaml:
+      name: config
+    prow/plugins.yaml:
+      name: plugins
+external_plugins:
+  jenkins-x/environment-tekton-mole-dev: null
+  jenkins-x/environment-tekton-mole-production: null
+  jenkins-x/environment-tekton-mole-staging: null
+heart: {}
+owners: {}
+plugins:
+  jenkins-x/prow-config-tekton:
+  - config-updater
+  - size
+  - shrug
+  - skip
+  - yuks
+  jenkins-x/environment-tekton-mole-dev:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  jenkins-x/environment-tekton-mole-production:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  jenkins-x/environment-tekton-mole-staging:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+requiresig: {}
+sigmention: {}
+slack: {}
+triggers:
+- repos:
+  - jenkins-x/environment-tekton-mole-production
+  trusted_org: jenkins-x
+- repos:
+  - jenkins-x/environment-tekton-mole-staging
+  trusted_org: jenkins-x
+- repos:
+  - jenkins-x/environment-tekton-mole-dev
+  trusted_org: jenkins-x
+welcome:
+- message_template: Welcome
