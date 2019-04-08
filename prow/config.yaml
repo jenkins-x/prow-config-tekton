@@ -1,5 +1,11 @@
 branch-protection:
   orgs:
+    jenkins-x-charts:
+      required_status_checks:
+        contexts: ["tekton"]
+    jenkins-x-apps:
+      required_status_checks:
+        contexts: ["tekton"]
     jenkins-x:
       repos:
         environment-tekton-mole-dev:
@@ -21,7 +27,8 @@ gerrit: {}
 owners_dir_blacklist:
   default: null
   repos: null
-plank: {}
+plank:
+  report_template: '{{if eq .Spec.Type "presubmit"}}[View all Builds for this Pull Request](https://core.jx.tekton.rawlings.it/teams/{{.Spec.Namespace}}/projects/browse/{{.Spec.Refs.Repo}}/PR-{{(index .Spec.Refs.Pulls 0).Number}}) {{else if eq .Spec.Type "batch"}} Run `jx get build log --owner {{.Spec.Refs.Org}} --repo {{.Spec.Refs.Repo}} --branch batch` whilst connected to the cluster. UI support coming soon. {{end}}'
 pod_namespace: jx
 postsubmits:
   jenkins-x/environment-tekton-mole-dev:
@@ -42,6 +49,12 @@ postsubmits:
     - master
     context: ""
     name: promotion
+  jenkins-x-charts/prow:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 presubmits:
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
@@ -64,6 +77,13 @@ presubmits:
     name: promotion-build
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(\s+|$)
+  jenkins-x-charts/prow:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 prowjob_namespace: jx
 push_gateway: {}
 sinker: {}
@@ -74,6 +94,16 @@ tide:
     skip-unknown-contexts: false
   queries:
   - labels:
+    - updatebot
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x-charts/prow
+  - labels:
     - approved
     missingLabels:
     - do-not-merge
@@ -82,7 +112,7 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
-    - jenkins-x/dummy
+    - jenkins-x-charts/prow
   - missingLabels:
     - do-not-merge
     - do-not-merge/hold
@@ -90,7 +120,6 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
-    - jenkins-x/dummy-environment
     - jenkins-x/environment-tekton-mole-production
     - jenkins-x/environment-tekton-mole-staging
     - jenkins-x/environment-tekton-mole-dev
