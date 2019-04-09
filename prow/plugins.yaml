@@ -5,6 +5,7 @@ approve:
   - jenkins-x/environment-tekton-mole-production
   - jenkins-x/environment-tekton-mole-staging
   - jenkins-x/environment-tekton-mole-dev
+  - jenkins-x-apps/jx-app-athens
   - jenkins-x-charts/prow
   - jenkins-x/jx
   - jenkins-x/jenkins-x-builders-base-image
@@ -75,6 +76,21 @@ plugins:
   - heart
   - cat
   - override
+  jenkins-x-apps/jx-app-athens:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x-charts/prow:
   - approve
   - heart
@@ -128,6 +144,7 @@ triggers:
   - jenkins-x/environment-tekton-mole-production
   - jenkins-x/environment-tekton-mole-staging
   - jenkins-x/environment-tekton-mole-dev
+  - jenkins-x-apps/jx-app-athens
   - jenkins-x-charts/prow
   - jenkins-x/jx
   - jenkins-x/jenkins-x-builders-base-image

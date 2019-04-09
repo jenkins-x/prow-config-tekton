@@ -56,6 +56,12 @@ postsubmits:
     - master
     context: ""
     name: promotion
+  jenkins-x-apps/jx-app-athens:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/prow:
   - agent: tekton
     context: tekton
@@ -96,6 +102,13 @@ presubmits:
     name: promotion-build
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(\s+|$)
+  jenkins-x-apps/jx-app-athens:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-charts/prow:
   - agent: tekton
     always_run: true
@@ -147,6 +160,7 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/prow
     - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x/jx
@@ -159,6 +173,7 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/prow
     - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x/jx
