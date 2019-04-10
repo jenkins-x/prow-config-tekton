@@ -12,6 +12,7 @@ cat: {}
 lgtm:
 - repos:
   - jenkins-x/jx
+  - jenkins-x/jenkins-x-versions
   review_acts_as_lgtm: true
 - repos:
   - jenkinsci/jx-resources-plugin
@@ -44,6 +45,21 @@ plugins:
   - shrug
   - skip
   - yuks
+  jenkins-x/jenkins-x-versions:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
   jenkins-x/environment-tekton-mole-dev:
   - config-updater
   - approve
