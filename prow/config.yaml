@@ -57,6 +57,9 @@ branch-protection:
         ext-java-code-quality:
           required_status_checks:
             contexts: ["tekton"]
+        jenkins-x-image:
+          required_status_checks:
+            contexts: ["tekton"]
   protect-tested-repos: true
 deck:
   spyglass: {}
@@ -172,6 +175,12 @@ postsubmits:
     branches:
     - master
   jenkins-x/homebrew-jx:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jenkins-x-image:
   - agent: tekton
     context: tekton
     name: tekton
@@ -322,6 +331,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jenkins-x-image:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-platform:
   - agent: tekton
     always_run: true
@@ -375,6 +391,7 @@ tide:
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
+    - jenkins-x/jenkins-x-image
   - labels:
     - approved
     missingLabels:
@@ -399,5 +416,6 @@ tide:
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
+    - jenkins-x/jenkins-x-image
     - jenkins-x/environment-tekton-mole-dev
   target_url: https://deck.infra.jrawlings.co.uk
