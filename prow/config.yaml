@@ -304,6 +304,37 @@ postsubmits:
     branches:
     - master
 presubmits:
+  jenkins-x/jenkins-x-versions:
+  - agent: tekton
+    always_run: false
+    context: static
+    name: static
+    rerun_command: /test static
+    trigger: (?m)^/test( all| this| static),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: prow
+    name: prow
+    rerun_command: /test prow
+    trigger: (?m)^/test( all| this| prow),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: gitops
+    name: gitops
+    rerun_command: /test gitops
+    trigger: (?m)^/test( all| gitops),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: ng
+    name: ng
+    rerun_command: /test ng
+    trigger: (?m)^/test( all| ng),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
