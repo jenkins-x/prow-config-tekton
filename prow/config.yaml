@@ -93,6 +93,60 @@ postsubmits:
     - master
     context: ""
     name: promotion
+  jenkins-x-apps/jx-app-sonarqube:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-cheese:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-grafana:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-istio:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-gitea:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/x-app-jenkins:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-anchore:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-ambassador:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-test-lifecycle:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-apps/jx-app-athens:
   - agent: tekton
     context: tekton
@@ -271,6 +325,69 @@ presubmits:
     name: promotion-build
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(\s+|$)
+  jenkins-x-apps/jx-app-sonarqube:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-cheese:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-grafana:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-istio:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-gitea:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-jenkins:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-anchore:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-ambassador:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-test-lifecycle:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-athens:
   - agent: tekton
     always_run: true
@@ -496,6 +613,15 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - jenkins-x-apps/jx-app-sonarqube
+    - jenkins-x-apps/jx-app-cheese
+    - jenkins-x-apps/jx-app-grafana
+    - jenkins-x-apps/jx-app-istio
+    - jenkins-x-apps/jx-app-gitea
+    - jenkins-x-apps/jx-app-jenkins
+    - jenkins-x-apps/jx-app-anchore
+    - jenkins-x-apps/jx-app-ambassador
+    - jenkins-x-apps/jx-app-test-lifecycle
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
@@ -530,6 +656,15 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - jenkins-x-apps/jx-app-sonarqube
+    - jenkins-x-apps/jx-app-cheese
+    - jenkins-x-apps/jx-app-grafana
+    - jenkins-x-apps/jx-app-istio
+    - jenkins-x-apps/jx-app-gitea
+    - jenkins-x-apps/jx-app-jenkins
+    - jenkins-x-apps/jx-app-anchore
+    - jenkins-x-apps/jx-app-ambassador
+    - jenkins-x-apps/jx-app-test-lifecycle
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
