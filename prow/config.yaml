@@ -1,5 +1,13 @@
 branch-protection:
   orgs:
+    cloudbees:
+      repos:
+        core-backend:
+          required_status_checks:
+          contexts: ["tekton"]
+        core-frontend:
+          required_status_checks:
+          contexts: ["tekton"]
     jenkins-x-charts:
       required_status_checks:
         contexts: ["tekton"]
@@ -75,6 +83,18 @@ plank:
   job_url_template: '{{if eq .Spec.Type "presubmit"}}[View Build Log](https://core.infra.jrawlings.co.uk/teams/{{.Spec.Namespace}}/projects/browse/{{.Spec.Refs.Repo}}/PR-{{(index .Spec.Refs.Pulls 0).Number}}/{{.Status.BuildID}}) {{else if eq .Spec.Type "batch"}} Run `jx get build log --owner {{.Spec.Refs.Org}} --repo {{.Spec.Refs.Repo}} --branch batch --build {{.Status.BuildID}}` whilst connected to the cluster. UI support coming soon. {{end}}'
 pod_namespace: jx
 postsubmits:
+  cloudbees/core-backend:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  cloudbees/core-frontend:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     branches:
@@ -304,6 +324,20 @@ postsubmits:
     branches:
     - master
 presubmits:
+  cloudbees/core-backend:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  cloudbees/core-frontend:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-versions:
   - agent: tekton
     always_run: false
@@ -644,6 +678,8 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - cloudbees/core-backend
+    - cloudbees/core-frontend
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
@@ -687,6 +723,8 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - cloudbees/core-backend
+    - cloudbees/core-frontend
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana

@@ -19,6 +19,7 @@ lgtm:
   review_acts_as_lgtm: true
 - repos:
   - cloudbees/core-backend
+  - cloudbees/core-frontend
   review_acts_as_lgtm: true
 - repos:
   - cloudbees/core-controller
@@ -45,6 +46,36 @@ plugins:
   - shrug
   - skip
   - yuks
+  cloudbees/core-backend:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  cloudbees/core-frontend:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
   jenkins-x/jenkins-x-versions:
   - config-updater
   - approve
