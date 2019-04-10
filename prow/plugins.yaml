@@ -254,6 +254,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/dev-env-base:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/updatebot:
   - approve
   - heart

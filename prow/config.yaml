@@ -51,6 +51,9 @@ branch-protection:
         dev-env:
           required_status_checks:
             contexts: ["tekton"]
+        dev-env-base:
+          required_status_checks:
+            contexts: ["tekton"]
         updatebot:
           required_status_checks:
             contexts: ["tekton"]
@@ -109,6 +112,12 @@ postsubmits:
     branches:
     - master
   jenkins-x/dev-env:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/dev-env-base:
   - agent: tekton
     context: tekton
     name: tekton
@@ -275,6 +284,13 @@ presubmits:
     name: tekton
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
+  jenkins-x/dev-env-base:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
   jenkins-x/updatebot:
   - agent: tekton
     always_run: true
@@ -388,6 +404,7 @@ tide:
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/homebrew-jx
     - jenkins-x/dev-env
+    - jenkins-x/dev-env-base
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
@@ -413,6 +430,7 @@ tide:
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/homebrew-jx
     - jenkins-x/dev-env
+    - jenkins-x/dev-env-base
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
