@@ -253,6 +253,8 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jx
+    - jenkins-x/environment-tekton-mole-production
+    - jenkins-x/environment-tekton-mole-staging
   - labels:
     - updatebot
     missingLabels:
@@ -289,15 +291,5 @@ tide:
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-platform
-    - jenkins-x/jx
-  - missingLabels:
-    - do-not-merge
-    - do-not-merge/hold
-    - do-not-merge/work-in-progress
-    - needs-ok-to-test
-    - needs-rebase
-    repos:
-    - jenkins-x/environment-tekton-mole-production
-    - jenkins-x/environment-tekton-mole-staging
     - jenkins-x/environment-tekton-mole-dev
   target_url: https://deck.infra.jrawlings.co.uk
