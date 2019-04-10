@@ -24,6 +24,12 @@ branch-protection:
           required_status_checks:
             contexts:
               ["bdd","integration","lint"]
+        jx-docs:
+          required_status_checks:
+            contexts: ["tekton"]
+        jx-tutorial:
+          required_status_checks:
+            contexts: ["tekton"]
         jenkins-x-builders-base-image:
           required_status_checks:
             contexts: ["tekton"]
@@ -91,6 +97,18 @@ postsubmits:
     branches:
     - master
   jenkins-x/jx:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jx-docs:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jx-tutorial:
   - agent: tekton
     context: tekton
     name: tekton
@@ -200,6 +218,20 @@ presubmits:
     name: lint
     rerun_command: /test lint
     trigger: (?m)^/test( all| lint),?(s+|$)
+  jenkins-x/jx-docs:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jx-tutorial:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-builders-base-image:
   - agent: tekton
     always_run: true
@@ -283,6 +315,8 @@ tide:
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
+    - jenkins-x/jx-docs
+    - jenkins-x/jx-tutorial
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
@@ -302,6 +336,8 @@ tide:
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
+    - jenkins-x/jx-docs
+    - jenkins-x/jx-tutorial
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
