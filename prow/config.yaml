@@ -27,6 +27,12 @@ branch-protection:
         jenkins-x-builders-base-image:
           required_status_checks:
             contexts: ["tekton"]
+        jenkins-x-builders-base:
+          required_status_checks:
+            contexts: ["tekton"]
+        jenkins-x-builders:
+          required_status_checks:
+            contexts: ["tekton"]
   protect-tested-repos: true
 deck:
   spyglass: {}
@@ -81,6 +87,12 @@ postsubmits:
     branches:
     - master
   jenkins-x/jenkins-x-builders-base-image:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jenkins-x-builders-base:
   - agent: tekton
     context: tekton
     name: tekton
@@ -167,6 +179,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jenkins-x-builders-base:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-builders:
   - agent: tekton
     always_run: true
@@ -203,6 +222,7 @@ tide:
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x/jenkins-x-builders
+    - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x/jenkins-x-platform
     - jenkins-x/jx
@@ -219,6 +239,7 @@ tide:
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x/jenkins-x-builders
+    - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x/jenkins-x-platform
     - jenkins-x/jx

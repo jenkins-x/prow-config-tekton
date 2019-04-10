@@ -10,6 +10,7 @@ approve:
   - jenkins-x-charts/prow
   - jenkins-x/jx
   - jenkins-x/jenkins-x-builders
+  - jenkins-x/jenkins-x-builders-base
   - jenkins-x/jenkins-x-builders-base-image
   - jenkins-x/jenkins-x-platform
 blunderbuss: {}
@@ -139,6 +140,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jenkins-x-builders-base:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jenkins-x-builders-base-image:
   - approve
   - heart
@@ -197,6 +213,7 @@ triggers:
   - jenkins-x-charts/prow
   - jenkins-x/jx
   - jenkins-x/jenkins-x-builders
+  - jenkins-x/jenkins-x-builders-base
   - jenkins-x/jenkins-x-builders-base-image
   - jenkins-x/jenkins-x-platform
   trusted_org: jenkins-x
