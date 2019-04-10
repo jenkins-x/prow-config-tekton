@@ -80,6 +80,18 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/jenkins-x-builders:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jenkins-x-platform:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 presubmits:
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
@@ -142,6 +154,20 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jenkins-x-builders:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jenkins-x-platform:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 prowjob_namespace: jx
 push_gateway: {}
 sinker: {}
@@ -162,7 +188,9 @@ tide:
     repos:
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/prow
+    - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base-image
+    - jenkins-x/jenkins-x-platform
     - jenkins-x/jx
   - labels:
     - approved
@@ -175,7 +203,9 @@ tide:
     repos:
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-charts/prow
+    - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base-image
+    - jenkins-x/jenkins-x-platform
     - jenkins-x/jx
   - missingLabels:
     - do-not-merge

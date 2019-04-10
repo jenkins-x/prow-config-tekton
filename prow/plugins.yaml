@@ -8,7 +8,9 @@ approve:
   - jenkins-x-apps/jx-app-athens
   - jenkins-x-charts/prow
   - jenkins-x/jx
+  - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base-image
+  - jenkins-x/jenkins-x-platform
 blunderbuss: {}
 cat: {}
 cherry_pick_unapproved: {}
@@ -106,7 +108,37 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jenkins-x-builders:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jenkins-x-builders-base-image:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-platform:
   - approve
   - heart
   - assign
@@ -147,7 +179,9 @@ triggers:
   - jenkins-x-apps/jx-app-athens
   - jenkins-x-charts/prow
   - jenkins-x/jx
+  - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base-image
+  - jenkins-x/jenkins-x-platform
   trusted_org: jenkins-x
   only_org_members: true
 welcome:
