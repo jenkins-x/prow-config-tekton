@@ -62,6 +62,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-charts/environment-controller:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/prow:
   - agent: tekton
     context: tekton
@@ -115,6 +121,13 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(\s+|$)
   jenkins-x-apps/jx-app-athens:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-charts/environment-controller:
   - agent: tekton
     always_run: true
     context: tekton
@@ -187,6 +200,7 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x-apps/jx-app-athens
+    - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base-image
@@ -202,6 +216,7 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x-apps/jx-app-athens
+    - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base-image
