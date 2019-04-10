@@ -242,6 +242,17 @@ tide:
     skip-unknown-contexts: false
   queries:
   - labels:
+    - approved
+    - lgtm
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x/jx
+  - labels:
     - updatebot
     missingLabels:
     - do-not-merge
@@ -259,7 +270,6 @@ tide:
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-platform
-    - jenkins-x/jx
   - labels:
     - approved
     missingLabels:
