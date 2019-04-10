@@ -299,6 +299,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jenkins-x-image:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jenkins-x-platform:
   - approve
   - heart
