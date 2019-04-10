@@ -48,6 +48,15 @@ branch-protection:
         homebrew-jx:
           required_status_checks:
             contexts: ["tekton"]
+        dev-env:
+          required_status_checks:
+            contexts: ["tekton"]
+        updatebot:
+          required_status_checks:
+            contexts: ["tekton"]
+        ext-java-code-quality:
+          required_status_checks:
+            contexts: ["tekton"]
   protect-tested-repos: true
 deck:
   spyglass: {}
@@ -91,6 +100,24 @@ postsubmits:
     branches:
     - master
   jenkins-x-charts/prow:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/dev-env:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/updatebot:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/ext-java-code-quality:
   - agent: tekton
     context: tekton
     name: tekton
@@ -232,6 +259,27 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/dev-env:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
+  jenkins-x/updatebot:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
+  jenkins-x/ext-java-code-quality:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-builders-base-image:
   - agent: tekton
     always_run: true
@@ -323,6 +371,9 @@ tide:
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/homebrew-jx
+    - jenkins-x/dev-env
+    - jenkins-x/updatebot
+    - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
   - labels:
     - approved
@@ -344,6 +395,9 @@ tide:
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/homebrew-jx
+    - jenkins-x/dev-env
+    - jenkins-x/updatebot
+    - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
     - jenkins-x/environment-tekton-mole-dev
   target_url: https://deck.infra.jrawlings.co.uk
