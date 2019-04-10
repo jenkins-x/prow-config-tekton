@@ -12,6 +12,8 @@ approve:
   - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x/jenkins-x-builders-base-image
+  - jenkins-x/jenkins-x-serverless-filerunner
+  - jenkins-x/jenkins-x-serverless
   - jenkins-x/jenkins-x-platform
 blunderbuss: {}
 cat: {}
@@ -170,6 +172,36 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jenkins-x-serverless-filerunner:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-serverless:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jenkins-x-platform:
   - approve
   - heart
@@ -215,6 +247,8 @@ triggers:
   - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x/jenkins-x-builders-base-image
+  - jenkins-x/jenkins-x-serverless-filerunner
+  - jenkins-x/jenkins-x-serverless
   - jenkins-x/jenkins-x-platform
   trusted_org: jenkins-x
   only_org_members: true
