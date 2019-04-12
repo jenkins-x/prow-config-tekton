@@ -480,6 +480,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jx-datadog:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jx-docs:
   - approve
   - heart
