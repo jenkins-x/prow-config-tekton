@@ -147,7 +147,7 @@ postsubmits:
     name: tekton
     branches:
     - master
-  jenkins-x-apps/x-app-jenkins:
+  jenkins-x-apps/jx-app-jenkins:
   - agent: tekton
     context: tekton
     name: tekton
@@ -178,6 +178,12 @@ postsubmits:
     branches:
     - master
   jenkins-x-apps/jx-app-sso:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-jacoco:
   - agent: tekton
     context: tekton
     name: tekton
@@ -477,6 +483,13 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-sso:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-jacoco:
   - agent: tekton
     always_run: true
     context: tekton

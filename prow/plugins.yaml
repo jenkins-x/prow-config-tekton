@@ -300,6 +300,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x-apps/jx-app-jacoco:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x-charts/hey:
   - approve
   - heart
