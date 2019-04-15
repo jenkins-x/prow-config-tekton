@@ -47,10 +47,10 @@ plugins:
   - skip
   - yuks
   cloudbees/core-backend:
-  - config-updater
   - approve
   - assign
   - blunderbuss
+  - heart
   - help
   - hold
   - lgtm
@@ -62,10 +62,10 @@ plugins:
   - cat
   - override
   cloudbees/core-frontend:
-  - config-updater
   - approve
   - assign
   - blunderbuss
+  - heart
   - help
   - hold
   - lgtm
@@ -77,10 +77,10 @@ plugins:
   - cat
   - override
   jenkins-x/jenkins-x-versions:
-  - config-updater
   - approve
   - assign
   - blunderbuss
+  - heart
   - help
   - hold
   - lgtm
@@ -92,10 +92,10 @@ plugins:
   - cat
   - override
   jenkins-x/environment-tekton-mole-dev:
-  - config-updater
   - approve
   - assign
   - blunderbuss
+  - heart
   - help
   - hold
   - lgtm
@@ -107,10 +107,10 @@ plugins:
   - cat
   - override
   jenkins-x/environment-tekton-mole-production:
-  - config-updater
   - approve
   - assign
   - blunderbuss
+  - heart
   - help
   - hold
   - lgtm
@@ -122,10 +122,10 @@ plugins:
   - cat
   - override
   jenkins-x/environment-tekton-mole-staging:
-  - config-updater
   - approve
   - assign
   - blunderbuss
+  - heart
   - help
   - hold
   - lgtm
