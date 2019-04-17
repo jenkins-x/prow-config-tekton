@@ -710,6 +710,9 @@ prowjob_namespace: jx
 push_gateway: {}
 sinker: {}
 tide:
+  merge_method:
+    jenkins-x-apps/jx-app-test-lifecycle: squash
+    jenkins-x/jx: squash
   context_options:
     from-branch-protection: true
     required-if-present-contexts: null
