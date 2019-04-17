@@ -750,6 +750,7 @@ tide:
     - jenkins-x-apps/jx-app-test-lifecycle
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-apps/jx-app-sso
+    - jenkins-x-apps/jx-app-jacoco
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/tekton
@@ -798,6 +799,7 @@ tide:
     - jenkins-x-apps/jx-app-test-lifecycle
     - jenkins-x-apps/jx-app-athens
     - jenkins-x-apps/jx-app-sso
+    - jenkins-x-apps/jx-app-jacoco
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/tekton
