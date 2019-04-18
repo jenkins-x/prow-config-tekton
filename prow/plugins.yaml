@@ -181,6 +181,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x-apps/jx-app-datadog:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x-apps/jx-app-istio:
   - approve
   - heart
