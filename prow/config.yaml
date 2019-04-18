@@ -138,6 +138,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-apps/jx-app-datadog:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-apps/jx-app-istio:
   - agent: tekton
     context: tekton
@@ -436,6 +442,13 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-grafana:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-datadog:
   - agent: tekton
     always_run: true
     context: tekton
@@ -746,6 +759,7 @@ tide:
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
+    - jenkins-x-apps/jx-app-datadog
     - jenkins-x-apps/jx-app-istio
     - jenkins-x-apps/jx-app-gitea
     - jenkins-x-apps/jx-app-jenkins
@@ -795,6 +809,7 @@ tide:
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
+    - jenkins-x-apps/jx-app-datadog
     - jenkins-x-apps/jx-app-istio
     - jenkins-x-apps/jx-app-gitea
     - jenkins-x-apps/jx-app-jenkins
