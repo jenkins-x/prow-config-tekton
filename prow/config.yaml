@@ -384,6 +384,12 @@ presubmits:
     trigger: (?m)^/test( all| this| static),?(s+|$)
   - agent: tekton
     always_run: false
+    context: tiller
+    name: tiller
+    rerun_command: /test tiller
+    trigger: (?m)^/test( all| this| tiller),?(s+|$)
+  - agent: tekton
+    always_run: false
     context: prow
     name: prow
     rerun_command: /test prow
