@@ -765,6 +765,21 @@ plugins:
   - cat
   - dog
   - override
+  cloudbees/jx-app-ui:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
 requiresig: {}
 sigmention: {}
 slack: {}
@@ -773,6 +788,7 @@ triggers:
   - jenkins-x
   - jenkins-x-apps
   - jenkins-x-charts
+  - cloudbees
   trusted_org: jenkins-x
   only_org_members: true
 welcome:
