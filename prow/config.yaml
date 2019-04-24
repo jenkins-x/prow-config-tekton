@@ -360,6 +360,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/exposecontroller:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 presubmits:
   cloudbees/core-backend:
   - agent: tekton
@@ -725,6 +731,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/exposecontroller:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 prowjob_namespace: jx
 push_gateway: {}
 sinker: {}
@@ -800,6 +813,7 @@ tide:
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
     - jenkins-x/jenkins-x-image
+    - jenkins-x/exposecontroller
     - jenkins-x/sso-operator
   - labels:
     - approved
@@ -852,4 +866,5 @@ tide:
     - jenkins-x/jenkins-x-image
     - jenkins-x/environment-tekton-mole-dev
     - jenkins-x/sso-operator
+    - jenkins-x/exposecontroller
   target_url: https://deck.infra.jrawlings.co.uk
