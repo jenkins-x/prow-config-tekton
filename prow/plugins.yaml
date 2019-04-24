@@ -735,6 +735,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/exposecontroller:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
 requiresig: {}
 sigmention: {}
 slack: {}
