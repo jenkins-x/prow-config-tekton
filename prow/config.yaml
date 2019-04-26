@@ -96,13 +96,13 @@ plank:
   job_url_template: '{{if eq .Spec.Type "presubmit"}}https://core.infra.jrawlings.co.uk/teams/{{.Spec.Namespace}}/projects/browse/{{.Spec.Refs.Repo}}/PR-{{(index .Spec.Refs.Pulls 0).Number}}/{{.Status.BuildID}}{{else if eq .Spec.Type "postsubmit"}}https://core.infra.jrawlings.co.uk/teams/{{.Spec.Namespace}}/projects/browse/{{.Spec.Refs.Repo}}/{{.Spec.Refs.BaseRef}}/{{.Status.BuildID}}{{end}}'
 pod_namespace: jx
 postsubmits:
-  cloudbees/core-backend:
+  cloudbees/jxui-backend:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-  cloudbees/core-frontend:
+  cloudbees/jxui-frontend:
   - agent: tekton
     context: tekton
     name: tekton
@@ -385,14 +385,14 @@ postsubmits:
     branches:
     - master
 presubmits:
-  cloudbees/core-backend:
+  cloudbees/jxui-backend:
   - agent: tekton
     always_run: true
     context: tekton
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-  cloudbees/core-frontend:
+  cloudbees/jxui-frontend:
   - agent: tekton
     always_run: true
     context: tekton
@@ -805,8 +805,8 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
-    - cloudbees/core-backend
-    - cloudbees/core-frontend
+    - cloudbees/jxui-backend
+    - cloudbees/jxui-frontend
     - cloudbees/jx-app-ui
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
@@ -858,8 +858,8 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
-    - cloudbees/core-backend
-    - cloudbees/core-frontend
+    - cloudbees/jxui-backend
+    - cloudbees/jxui-frontend
     - cloudbees/jx-app-ui
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese

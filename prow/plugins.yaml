@@ -18,8 +18,8 @@ lgtm:
   - jenkinsci/jx-resources-plugin
   review_acts_as_lgtm: true
 - repos:
-  - cloudbees/core-backend
-  - cloudbees/core-frontend
+  - cloudbees/jxui-backend
+  - cloudbees/jxui-frontend
   review_acts_as_lgtm: true
 - repos:
   - cloudbees/core-controller
@@ -46,7 +46,7 @@ plugins:
   - shrug
   - skip
   - yuks
-  cloudbees/core-backend:
+  cloudbees/jxui-backend:
   - approve
   - assign
   - blunderbuss
@@ -61,7 +61,7 @@ plugins:
   - heart
   - cat
   - override
-  cloudbees/core-frontend:
+  cloudbees/jxui-frontend:
   - approve
   - assign
   - blunderbuss
