@@ -11,6 +11,9 @@ branch-protection:
         jx-app-ui:
           required_status_checks:
           contexts: ["tekton"]
+        cb-app-slack
+          required_status_checks:
+          contexts: ["tekton"]
     jenkins-x-charts:
       required_status_checks:
         contexts: ["tekton"]
@@ -384,6 +387,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  cloudbees/cb-app-slack:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 presubmits:
   cloudbees/jxui-backend:
   - agent: tekton
@@ -548,6 +557,13 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   cloudbees/jx-app-ui:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  cloudbees/cb-app-slack:
   - agent: tekton
     always_run: true
     context: tekton
@@ -814,6 +830,7 @@ tide:
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
     - cloudbees/jx-app-ui
+    - cloudbees/cb-app-slack
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
@@ -867,6 +884,7 @@ tide:
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
     - cloudbees/jx-app-ui
+    - cloudbees/cb-app-slack
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
