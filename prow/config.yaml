@@ -11,7 +11,7 @@ branch-protection:
         jx-app-ui:
           required_status_checks:
           contexts: ["tekton"]
-        cb-app-slack
+        cb-app-slack:
           required_status_checks:
           contexts: ["tekton"]
     jenkins-x-charts:
