@@ -644,6 +644,12 @@ presubmits:
     name: lint
     rerun_command: /test lint
     trigger: (?m)^/test( all| lint),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
   jenkins-x/jx-datadog:
   - agent: tekton
     always_run: true
