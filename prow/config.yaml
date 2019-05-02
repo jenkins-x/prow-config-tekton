@@ -369,6 +369,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/jx-ts-client:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/sso-operator:
   - agent: tekton
     context: tekton
@@ -790,6 +796,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jx-ts-client:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/sso-operator:
   - agent: tekton
     always_run: true
@@ -888,6 +901,7 @@ tide:
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
+    - jenkins-x/jx-ts-client
     - jenkins-x/jenkins-x-image
     - jenkins-x/exposecontroller
     - jenkins-x/sso-operator
@@ -943,6 +957,7 @@ tide:
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x/jenkins-x-platform
+    - jenkins-x/jx-ts-client
     - jenkins-x/jenkins-x-image
     - jenkins-x/environment-tekton-mole-dev
     - jenkins-x/sso-operator
