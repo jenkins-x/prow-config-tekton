@@ -720,6 +720,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/jx-ts-client:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jx:
   - approve
   - heart
