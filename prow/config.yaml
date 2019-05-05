@@ -213,6 +213,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-apps/jx-app-prometheus:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/hey:
   - agent: tekton
     context: tekton
@@ -602,6 +608,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-prometheus:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-charts/hey:
   - agent: tekton
     always_run: true
@@ -890,6 +903,7 @@ tide:
     - jenkins-x-apps/jx-app-sso
     - jenkins-x-apps/jx-app-cert-manager
     - jenkins-x-apps/jx-app-jacoco
+    - jenkins-x-apps/jx-app-prometheus
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/tekton
@@ -947,6 +961,7 @@ tide:
     - jenkins-x-apps/jx-app-sso
     - jenkins-x-apps/jx-app-cert-manager
     - jenkins-x-apps/jx-app-jacoco
+    - jenkins-x-apps/jx-app-prometheus
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/tekton
