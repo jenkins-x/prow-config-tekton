@@ -273,6 +273,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-charts/kubernetes-replicator:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/dev-env:
   - agent: tekton
     context: tekton
@@ -666,6 +672,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-charts/kubernetes-replicator:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jx:
   - agent: tekton
     always_run: true
@@ -887,6 +900,7 @@ tide:
     - jenkins-x-charts/jx-build-templates
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
+    - jenkins-x-charts/kubernetes-replicator
     - jenkins-x/jx-datadog
     - jenkins-x/jx-docs
     - jenkins-x/jx-tutorial
@@ -943,6 +957,7 @@ tide:
     - jenkins-x-charts/jx-build-templates
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
+    - jenkins-x-charts/kubernetes-replicator
     - jenkins-x/jx-datadog
     - jenkins-x/jx-docs
     - jenkins-x/jx-tutorial
