@@ -885,6 +885,7 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
+    - jenkins-x/environment-tekton-mole-dev
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
     - cloudbees/jx-app-ui
