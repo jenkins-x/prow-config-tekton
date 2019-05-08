@@ -697,7 +697,7 @@ presubmits:
     context: tekton
     name: tekton
     rerun_command: /test tekton
-    trigger: (?m)^/test( all| tekton),?(s+|$)
+    trigger: (?m)^/test( tekton),?(s+|$)
   jenkins-x/jx-datadog:
   - agent: tekton
     always_run: true
