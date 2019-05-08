@@ -105,12 +105,6 @@ postsubmits:
     name: tekton
     branches:
     - master
-  cloudbees/jxui-frontend:
-  - agent: tekton
-    context: tekton
-    name: tekton
-    branches:
-    - master
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     branches:
@@ -405,12 +399,6 @@ postsubmits:
     name: tekton
     branches:
     - master
-  cloudbees/jx-app-ui:
-  - agent: tekton
-    context: tekton
-    name: tekton
-    branches:
-    - master
   cloudbees/cb-app-slack:
   - agent: tekton
     context: tekton
@@ -587,13 +575,6 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-cert-manager:
-  - agent: tekton
-    always_run: true
-    context: tekton
-    name: tekton
-    rerun_command: /test this
-    trigger: (?m)^/test( all| this),?(s+|$)
-  cloudbees/jx-app-ui:
   - agent: tekton
     always_run: true
     context: tekton
@@ -894,7 +875,6 @@ tide:
     - jenkins-x/environment-tekton-mole-dev
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
-    - cloudbees/jx-app-ui
     - cloudbees/cb-app-slack
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
@@ -952,7 +932,6 @@ tide:
     repos:
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
-    - cloudbees/jx-app-ui
     - cloudbees/cb-app-slack
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
