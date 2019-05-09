@@ -105,6 +105,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  cloudbees/jxui-frontend:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     branches:
@@ -463,6 +469,12 @@ presubmits:
     name: ng
     rerun_command: /test ng
     trigger: (?m)^/test( all| ng),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: static-gke-us-east1-b
+    name: static-gke-us-east1-b
+    rerun_command: /test static-gke-us-east1-b
+    trigger: (?m)^/test static-gke-us-east1-b,?(s+|$)  
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
