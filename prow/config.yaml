@@ -462,7 +462,7 @@ presubmits:
     context: ekstekton
     name: ekstekton
     rerun_command: /test ekstekton
-    trigger: (?m)^/test( all| ekstekton),?(s+|$)  
+    trigger: (?m)^/test( ekstekton),?(s+|$)  
   - agent: tekton
     always_run: false
     context: ng
