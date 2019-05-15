@@ -311,7 +311,6 @@ postsubmits:
     - master
   jenkins-x/jx:
   - agent: tekton
-    context: tekton
     name: tekton
     branches:
     - master
