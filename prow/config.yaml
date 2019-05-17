@@ -37,7 +37,7 @@ branch-protection:
         jx:
           required_status_checks:
             contexts:
-              ["bdd","integration","lint"]
+              ["bdd","integration","lint","tekton"]
         jx-datadog:
           required_status_checks:
             contexts: ["tekton"]
