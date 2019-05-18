@@ -862,7 +862,6 @@ tide:
             - codecov/project
             - codecov/patch
             required-contexts:
-            - DCO
             - integration
             - lint
             - bdd
