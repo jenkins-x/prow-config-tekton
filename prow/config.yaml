@@ -854,6 +854,19 @@ tide:
     from-branch-protection: true
     required-if-present-contexts: null
     skip-unknown-contexts: false
+    orgs:
+      jenkins-x:
+        repos:
+          jx:
+            optional-contexts: 
+            - codecov/project
+            - codecov/patch
+            required-contexts:
+            - DCO
+            - integration
+            - lint
+            - bdd
+            - Hound
   queries:
   - labels:
     - approved
