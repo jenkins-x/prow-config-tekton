@@ -61,6 +61,21 @@ plugins:
   - heart
   - cat
   - override
+  cloudbees/jxui-ts-client:
+  - approve
+  - assign
+  - blunderbuss
+  - heart
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
   cloudbees/jxui-frontend:
   - approve
   - assign
