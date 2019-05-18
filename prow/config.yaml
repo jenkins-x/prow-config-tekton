@@ -8,6 +8,9 @@ branch-protection:
         jxui-frontend:
           required_status_checks:
           contexts: ["tekton"]
+        jxui-ts-client:
+          required_status_checks:
+          contexts: ["tekton"]
         jx-app-ui:
           required_status_checks:
           contexts: ["tekton"]
@@ -100,6 +103,12 @@ plank:
 pod_namespace: jx
 postsubmits:
   cloudbees/jxui-backend:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  cloudbees/jxui-ts-client:
   - agent: tekton
     context: tekton
     name: tekton
@@ -412,6 +421,13 @@ postsubmits:
     - master
 presubmits:
   cloudbees/jxui-backend:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  cloudbees/jxui-ts-client:
   - agent: tekton
     always_run: true
     context: tekton
@@ -892,6 +908,7 @@ tide:
     - jenkins-x/environment-tekton-mole-dev
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
+    - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
@@ -949,6 +966,7 @@ tide:
     repos:
     - cloudbees/jxui-backend
     - cloudbees/jxui-frontend
+    - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
