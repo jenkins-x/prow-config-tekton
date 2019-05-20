@@ -320,7 +320,7 @@ postsubmits:
     - master
   jenkins-x/jx:
   - agent: tekton
-    name: tekton
+    name: release
     branches:
     - master
   jenkins-x/jx-datadog:
