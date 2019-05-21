@@ -496,6 +496,12 @@ presubmits:
     name: static-gke-us-east1-b
     rerun_command: /test static-gke-us-east1-b
     trigger: (?m)^/test static-gke-us-east1-b,?(s+|$)  
+  - agent: tekton
+    always_run: false
+    context: helm3
+    name: helm3
+    rerun_command: /test helm3
+    trigger: (?m)^/test( helm3),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
