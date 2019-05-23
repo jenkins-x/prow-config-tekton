@@ -888,7 +888,7 @@ tide:
           jx:
             optional-contexts: 
             - codecov/project
-            - codecov/patch/defualt
+            - codecov/patch
             required-contexts:
             - integration
             - lint
