@@ -95,7 +95,7 @@ deck:
     size_limit: 500e+6 # 500MB
     viewers:
       #"started.json|finished.json": ["metadata"]
-      "*.txt": ["buildlog"]
+      "\\*.log": ["buildlog"]
       #"artifacts/junit.*\\.xml": ["junit"] # Remember to escape your '\' in yaml strings!
 gerrit: {}
 owners_dir_blacklist:
