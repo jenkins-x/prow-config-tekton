@@ -91,7 +91,12 @@ branch-protection:
             contexts: ["tekton"]
   protect-tested-repos: true
 deck:
-  spyglass: {}
+  spyglass:
+    size_limit: 500e+6 # 500MB
+    viewers:
+      #"started.json|finished.json": ["metadata"]
+      "*.txt": ["buildlog"]
+      #"artifacts/junit.*\\.xml": ["junit"] # Remember to escape your '\' in yaml strings!
 gerrit: {}
 owners_dir_blacklist:
   default: null
