@@ -239,6 +239,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-charts/jenkins-x-minimal:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/nexus:
   - agent: tekton
     context: tekton
@@ -647,6 +653,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-charts/jenkins-x-minimal:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-charts/nexus:
   - agent: tekton
     always_run: true
@@ -943,6 +956,7 @@ tide:
     - jenkins-x-apps/jx-app-jacoco
     - jenkins-x-apps/jx-app-prometheus
     - jenkins-x-charts/hey
+    - jenkins-x-charts/jenkins-x-minimal
     - jenkins-x-charts/nexus
     - jenkins-x-charts/tekton
     - jenkins-x-charts/openshift-namespace-rbac-chart
@@ -1001,6 +1015,7 @@ tide:
     - jenkins-x-apps/jx-app-jacoco
     - jenkins-x-apps/jx-app-prometheus
     - jenkins-x-charts/hey
+    - jenkins-x-charts/jenkins-x-minimal
     - jenkins-x-charts/nexus
     - jenkins-x-charts/tekton
     - jenkins-x-charts/openshift-namespace-rbac-chart

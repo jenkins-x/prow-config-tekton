@@ -375,6 +375,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x-charts/jenkins-x-minimal:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x-charts/nexus:
   - approve
   - heart
