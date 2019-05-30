@@ -513,6 +513,12 @@ presubmits:
     name: helm3
     rerun_command: /test helm3
     trigger: (?m)^/test( helm3),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: terraform
+    name: terraform
+    rerun_command: /test terraform
+    trigger: (?m)^/test( terraform),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
