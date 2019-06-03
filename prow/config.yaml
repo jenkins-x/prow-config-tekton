@@ -23,7 +23,7 @@ periodics:
         Send provide feedback via https://jenkins-x.io/community
         /lifecycle stale
       - --template
-      - --ceiling=10
+      - --ceiling=30
       - --confirm
       volumeMounts:
       - name: token
