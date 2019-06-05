@@ -861,12 +861,6 @@ presubmits:
     name: bdd
     rerun_command: /test bdd
     trigger: (?m)^/test( all| bdd),?(s+|$)
-  - agent: tekton
-    always_run: true
-    context: e2e
-    name: e2e
-    rerun_command: /test e2e
-    trigger: (?m)^/test( all| e2e),?(s+|$)
     pipeline_run_spec:
       params:
       - name: versionPrefix
