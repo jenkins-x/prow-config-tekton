@@ -862,7 +862,7 @@ presubmits:
     rerun_command: /test bdd
     trigger: (?m)^/test( all| bdd),?(s+|$)
   - agent: tekton
-    always_run: true
+    always_run: false
     context: images
     name: images
     rerun_command: /test images
