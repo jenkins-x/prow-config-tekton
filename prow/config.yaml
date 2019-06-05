@@ -452,11 +452,6 @@ postsubmits:
     name: release
     branches:
     - master
-  - agent: tekton
-    name: bdd
-    context: bdd
-    branches:
-    - master 
   jenkins-x/jx-datadog:
   - agent: tekton
     context: tekton
