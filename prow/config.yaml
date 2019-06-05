@@ -1041,6 +1041,7 @@ tide:
       jenkins-x:
         repos:
           jx:
+            required-if-present-contexts: false
             optional-contexts: 
             - codecov/project
             - codecov/patch
