@@ -866,7 +866,7 @@ presubmits:
     context: images
     name: images
     rerun_command: /test images
-    trigger: (?m)^/test( all| images),?(s+|$)
+    trigger: (?m)^/test(images),?(s+|$)
   - agent: tekton
     always_run: true
     context: integration
