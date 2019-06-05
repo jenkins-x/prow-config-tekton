@@ -861,10 +861,12 @@ presubmits:
     name: bdd
     rerun_command: /test bdd
     trigger: (?m)^/test( all| bdd),?(s+|$)
-    pipeline_run_spec:
-      params:
-      - name: versionPrefix
-        value: covered
+  - agent: tekton
+    always_run: true
+    context: images
+    name: images
+    rerun_command: /test images
+    trigger: (?m)^/test( all| images),?(s+|$)
   - agent: tekton
     always_run: true
     context: integration
@@ -1042,6 +1044,7 @@ tide:
             optional-contexts: 
             - codecov/project
             - codecov/patch
+            - images
             required-contexts:
             - integration
             - lint
