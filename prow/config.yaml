@@ -1041,11 +1041,11 @@ tide:
       jenkins-x:
         repos:
           jx:
-            required-if-present-contexts: false
+            required-if-present-contexts: 
+            - images
             optional-contexts: 
             - codecov/project
             - codecov/patch
-            - images
             required-contexts:
             - integration
             - lint
