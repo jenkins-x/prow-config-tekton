@@ -429,6 +429,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  cloudbees/jx-tenant-service:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/updatebot:
   - agent: tekton
     context: tekton
@@ -908,6 +914,13 @@ presubmits:
     name: tekton
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
+  cloudbees/jx-tenant-service :
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
   jenkins-x/updatebot:
   - agent: tekton
     always_run: true
@@ -1058,6 +1071,7 @@ tide:
     - cloudbees/jxui-frontend
     - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
+    - cloudbees/jx-tenant-service 
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
@@ -1117,6 +1131,7 @@ tide:
     - cloudbees/jxui-frontend
     - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
+    - cloudbees/jx-tenant-service 
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana

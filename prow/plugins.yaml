@@ -705,6 +705,21 @@ plugins:
   - cat
   - dog
   - override
+  cloudbees/jx-tenant-service:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/updatebot:
   - approve
   - heart
