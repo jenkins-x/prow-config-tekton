@@ -1050,7 +1050,6 @@ tide:
             - integration
             - lint
             - bdd
-            - Hound
   queries:
   - labels:
     - approved
