@@ -585,12 +585,6 @@ presubmits:
     trigger: (?m)^/test( all| this| tiller),?(s+|$)
   - agent: tekton
     always_run: false
-    context: prow
-    name: prow
-    rerun_command: /test prow
-    trigger: (?m)^/test( all| this| prow),?(s+|$)
-  - agent: tekton
-    always_run: false
     context: gitops
     name: gitops
     rerun_command: /test gitops
