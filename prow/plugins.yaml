@@ -13,6 +13,7 @@ lgtm:
 - repos:
   - jenkins-x/jx
   - jenkins-x/jenkins-x-versions
+  - cloudbees/cloudbees-jenkins-x-distro
   review_acts_as_lgtm: true
 - repos:
   - jenkinsci/jx-resources-plugin
@@ -47,6 +48,21 @@ plugins:
   - skip
   - yuks
   cloudbees/jxui-backend:
+  - approve
+  - assign
+  - blunderbuss
+  - heart
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  cloudbees/cloudbees-jenkins-x-distro:
   - approve
   - assign
   - blunderbuss
