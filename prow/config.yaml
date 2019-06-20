@@ -225,6 +225,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  cloudbees/cloudbees-jenkins-x-distro:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   cloudbees/jxui-ts-client:
   - agent: tekton
     context: tekton
@@ -550,6 +556,13 @@ postsubmits:
     - master
 presubmits:
   cloudbees/jxui-backend:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  cloudbees/cloudbees-jenkins-x-distro:
   - agent: tekton
     always_run: true
     context: tekton
@@ -1070,6 +1083,7 @@ tide:
     repos:
     - jenkins-x/environment-tekton-mole-dev
     - cloudbees/jxui-backend
+    - cloudbees/cloudbees-jenkins-x-distro
     - cloudbees/jxui-frontend
     - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
@@ -1130,6 +1144,7 @@ tide:
     - needs-rebase
     repos:
     - cloudbees/jxui-backend
+    - cloudbees/cloudbees-jenkins-x-distro
     - cloudbees/jxui-frontend
     - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
