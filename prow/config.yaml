@@ -141,7 +141,7 @@ branch-protection:
         jx:
           required_status_checks:
             contexts:
-              ["bdd","integration","lint"]
+              ["bdd","unit","integration","lint"]
         jx-datadog:
           required_status_checks:
             contexts: ["tekton"]
@@ -874,6 +874,12 @@ presubmits:
     name: images
     rerun_command: /test images
     trigger: (?m)^/test images,?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: unit
+    name: unit
+    rerun_command: /test unit
+    trigger: (?m)^/test( all| unit),?(s+|$)
   - agent: tekton
     always_run: true
     context: integration
