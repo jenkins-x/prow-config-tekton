@@ -145,6 +145,9 @@ branch-protection:
         jx-datadog:
           required_status_checks:
             contexts: ["tekton"]
+        terraform-jx-templates-gke:
+          required_status_checks:
+            contexts: ["tekton"]
         jx-docs:
           required_status_checks:
             contexts: ["tekton"]
@@ -660,8 +663,8 @@ presubmits:
   jenkins-x/terraform-jx-templates-gke:
   - agent: tekton
     always_run: true
-    context: promotion-build
-    name: promotion-build
+    context: tekton
+    name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(\s+|$)
   jenkins-x/environment-tekton-mole-production:
