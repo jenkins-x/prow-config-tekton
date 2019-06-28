@@ -1055,7 +1055,7 @@ tide:
   merge_method:
     jenkins-x-apps/jx-app-test-lifecycle: rebase
     jenkins-x-apps/jx-app-jacoco: rebase
-    jenkins-x/jx: squash
+    jenkins-x/jx: rebase
   context_options:
     from-branch-protection: true
     required-if-present-contexts: null
