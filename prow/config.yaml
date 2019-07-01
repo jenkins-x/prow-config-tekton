@@ -644,7 +644,7 @@ presubmits:
     name: terraform
     rerun_command: /test terraform
     trigger: (?m)^/test( terraform),?(s+|$)
-  - agent: boot-local
+  - agent: tekton
     always_run: false
     context: boot-local
     name: boot-local
