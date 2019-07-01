@@ -653,6 +653,12 @@ presubmits:
     name: terraform
     rerun_command: /test terraform
     trigger: (?m)^/test( terraform),?(s+|$)
+  - agent: boot-local
+    always_run: false
+    context: boot-local
+    name: boot-local
+    rerun_command: /test boot-local
+    trigger: (?m)^/test( boot-local),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
