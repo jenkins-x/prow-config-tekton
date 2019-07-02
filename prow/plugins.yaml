@@ -137,6 +137,21 @@ plugins:
   - heart
   - cat
   - override
+  jenkins-x/terraform-jx-templates-gke:
+  - approve
+  - assign
+  - blunderbuss
+  - heart
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
   jenkins-x/environment-tekton-mole-production:
   - approve
   - assign
