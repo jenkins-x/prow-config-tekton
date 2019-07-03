@@ -141,7 +141,7 @@ branch-protection:
         jx:
           required_status_checks:
             contexts:
-              ["bdd","integration","lint"]
+              ["bdd","integration","lint","tekton"]
         jx-datadog:
           required_status_checks:
             contexts: ["tekton"]
@@ -909,11 +909,11 @@ presubmits:
     rerun_command: /test lint
     trigger: (?m)^/test( all| lint),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: tekton
     name: tekton
     rerun_command: /test tekton
-    trigger: (?m)^/test( tekton),?(s+|$)
+    trigger: (?m)^/test( all| tekton),?(s+|$)
   jenkins-x/jx-datadog:
   - agent: tekton
     always_run: true
@@ -1079,6 +1079,7 @@ tide:
             - integration
             - lint
             - bdd
+            - tekton
             - Hound
   queries:
   - labels:
