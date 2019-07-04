@@ -571,7 +571,7 @@ plugins:
   - cat
   - dog
   - override
-  jenkins-x/lighthoouse:
+  jenkins-x/lighthouse:
   - approve
   - heart
   - assign
