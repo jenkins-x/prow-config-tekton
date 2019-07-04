@@ -193,6 +193,9 @@ branch-protection:
         bucketrepo:
           required_status_checks:
             contexts: ["tekton"]
+        lighthouse:
+          required_status_checks:
+            contexts: ["tekton"]
   protect-tested-repos: true
 deck:
   spyglass:
@@ -427,6 +430,12 @@ postsubmits:
     branches:
     - master
   jenkins-x-charts/kubernetes-replicator:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/lighthouse:
   - agent: tekton
     context: tekton
     name: tekton
@@ -883,6 +892,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/lighthouse:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jx:
   - agent: tekton
     always_run: true
@@ -1139,6 +1155,7 @@ tide:
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x-charts/kubernetes-replicator
+    - jenkins-x/lighthouse
     - jenkins-x/jx-datadog
     - jenkins-x/jx-docs
     - jenkins-x/jx-tutorial
@@ -1200,6 +1217,7 @@ tide:
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x-charts/kubernetes-replicator
+    - jenkins-x/lighthouse
     - jenkins-x/jx-datadog
     - jenkins-x/jx-docs
     - jenkins-x/jx-tutorial
