@@ -141,7 +141,7 @@ branch-protection:
         jx:
           required_status_checks:
             contexts:
-              ["bdd","integration","lint","tekton"]
+              ["bdd","tekton","integration","lint"]
         jx-datadog:
           required_status_checks:
             contexts: ["tekton"]
@@ -476,6 +476,16 @@ postsubmits:
     name: release
     branches:
     - master
+  - agent: tekton
+    context: bdd
+    name: bdd
+    branches:
+    - master
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+      - master
   jenkins-x/jx-datadog:
   - agent: tekton
     context: tekton
