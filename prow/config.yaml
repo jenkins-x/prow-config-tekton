@@ -169,6 +169,9 @@ branch-protection:
         jenkins-x-serverless:
           required_status_checks:
             contexts: ["tekton"]
+        jenkins-x-versions:
+          required_status_checks:
+            contexts: ["static", "tiller", "gitops", "tekton", "ng"]    
         homebrew-jx:
           required_status_checks:
             contexts: ["tekton"]
@@ -613,25 +616,25 @@ presubmits:
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-versions:
   - agent: tekton
-    always_run: false
+    always_run: true
     context: static
     name: static
     rerun_command: /test static
     trigger: (?m)^/test( all| this| static),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: tiller
     name: tiller
     rerun_command: /test tiller
     trigger: (?m)^/test( all| this| tiller),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: gitops
     name: gitops
     rerun_command: /test gitops
     trigger: (?m)^/test( all| gitops),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: tekton
     name: tekton
     rerun_command: /test tekton
@@ -649,7 +652,7 @@ presubmits:
     rerun_command: /test eksclassic
     trigger: (?m)^/test( eksclassic),?(s+|$)   
   - agent: tekton
-    always_run: false
+    always_run: true
     context: ng
     name: ng
     rerun_command: /test ng
