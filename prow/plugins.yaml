@@ -25,6 +25,9 @@ lgtm:
 - repos:
   - cloudbees/core-controller
   review_acts_as_lgtm: true
+- repos:
+  - jenkins-x/prow-pipeline-controller
+  review_acts_as_lgtm: true
 cherry_pick_unapproved: {}
 config_updater:
   maps:
@@ -917,6 +920,21 @@ plugins:
   - dog
   - override
   cloudbees/cb-app-slack:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/prow-pipeline-controller:
   - approve
   - heart
   - assign
