@@ -175,6 +175,9 @@ branch-protection:
         jenkins-x-versions:
           required_status_checks:
             contexts: ["static", "tiller", "gitops", "tekton", "ng"]    
+        cloudbees-jenkins-x-versions:
+          required_status_checks:
+            contexts: ["boot-gke"]
         homebrew-jx:
           required_status_checks:
             contexts: ["tekton"]
@@ -648,6 +651,13 @@ presubmits:
     name: static
     rerun_command: /test static
     trigger: (?m)^/test( all| this| static),?(s+|$)
+  cloudbees/cloudbees-jenkins-x-versions:
+  - agent: tekton
+    always_run: true
+    context: boot-gke
+    name: boot-gke
+    rerun_command: /test boot-gke
+    trigger: (?m)^/test( all| this| boot-gke),?(s+|$)
   - agent: tekton
     always_run: true
     context: tiller
