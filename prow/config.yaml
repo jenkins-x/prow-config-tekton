@@ -644,13 +644,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-  jenkins-x/jenkins-x-versions:
-  - agent: tekton
-    always_run: true
-    context: static
-    name: static
-    rerun_command: /test static
-    trigger: (?m)^/test( all| this| static),?(s+|$)
   cloudbees/cloudbees-jenkins-x-versions:
   - agent: tekton
     always_run: true
@@ -658,6 +651,13 @@ presubmits:
     name: boot-gke
     rerun_command: /test boot-gke
     trigger: (?m)^/test( all| this| boot-gke),?(s+|$)
+  jenkins-x/jenkins-x-versions:
+  - agent: tekton
+    always_run: true
+    context: static
+    name: static
+    rerun_command: /test static
+    trigger: (?m)^/test( all| this| static),?(s+|$)
   - agent: tekton
     always_run: true
     context: tiller
