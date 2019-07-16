@@ -118,6 +118,9 @@ branch-protection:
         cb-app-slack:
           required_status_checks:
           contexts: ["tekton"]
+        cloudbees-jenkins-x-versions:
+          required_status_checks:
+          contexts: ["boot-gke"]
     jenkins-x-charts:
       required_status_checks:
         contexts: ["tekton"]
@@ -175,9 +178,6 @@ branch-protection:
         jenkins-x-versions:
           required_status_checks:
             contexts: ["static", "tiller", "gitops", "tekton", "ng"]    
-        cloudbees-jenkins-x-versions:
-          required_status_checks:
-            contexts: ["boot-gke"]
         homebrew-jx:
           required_status_checks:
             contexts: ["tekton"]
