@@ -717,7 +717,19 @@ presubmits:
     context: boot-local
     name: boot-local
     rerun_command: /test boot-local
-    trigger: (?m)^/test( boot-local),?(s+|$)
+    trigger: (?m)^/test( boot| boot-local),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: boot-vault
+    name: boot-vault
+    rerun_command: /test boot-vault
+    trigger: (?m)^/test( all| boot| boot-vault),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: boot-lh
+    name: boot-lh
+    rerun_command: /test boot-lh
+    trigger: (?m)^/test( boot| boot-lh),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
