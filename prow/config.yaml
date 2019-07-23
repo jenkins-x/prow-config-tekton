@@ -211,6 +211,9 @@ branch-protection:
         prow-pipeline-controller:
           required_status_checks:
             contexts: ["tekton"]
+        test-infra:
+          required_status_checks:
+            contexts: ["tekton"]
   protect-tested-repos: true
 deck:
   spyglass:
@@ -610,6 +613,12 @@ postsubmits:
     branches:
     - master
   jenkins-x/prow-pipeline-controller:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/test-infra:
   - agent: tekton
     context: tekton
     name: tekton
@@ -1153,6 +1162,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/test-infra:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 prowjob_namespace: jx
 push_gateway: {}
 sinker: {}
@@ -1260,6 +1276,7 @@ tide:
     - jenkins-x/sso-operator
     - jenkins-x/bucketrepo
     - jenkins-x/prow-pipeline-controller
+    - jenkins-x/test-infra
   - labels:
     - approved
     missingLabels:
@@ -1327,4 +1344,5 @@ tide:
     - jenkins-x/exposecontroller
     - jenkins-x/bucketrepo
     - jenkins-x/prow-pipeline-controller
+    - jenkins-x/test-infra
   target_url: https://deck.infra.jrawlings.co.uk
