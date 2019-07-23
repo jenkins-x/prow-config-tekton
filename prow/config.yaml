@@ -736,6 +736,18 @@ presubmits:
     name: boot-lh
     rerun_command: /test boot-lh
     trigger: (?m)^/test( boot| boot-lh),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: boot-lh-ghe
+    name: boot-lh-ghe
+    rerun_command: /test boot-lh-ghe
+    trigger: (?m)^/test( boot| boot-lh-ghe),?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: boot-lh-bs
+    name: boot-lh-bs
+    rerun_command: /test boot-lh-bs
+    trigger: (?m)^/test( boot| boot-lh-bs),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
