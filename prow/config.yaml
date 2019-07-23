@@ -450,6 +450,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/dex:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/lighthouse:
   - agent: tekton
     context: tekton
@@ -954,6 +960,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/dex:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/lighthouse:
   - agent: tekton
     always_run: true
@@ -1238,6 +1251,7 @@ tide:
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x-charts/kubernetes-replicator
+    - jenkins-x/dex
     - jenkins-x/lighthouse
     - jenkins-x/go-scm
     - jenkins-x/jx-datadog
@@ -1302,6 +1316,7 @@ tide:
     - jenkins-x-charts/environment-controller
     - jenkins-x-charts/prow
     - jenkins-x-charts/kubernetes-replicator
+    - jenkins-x/dex
     - jenkins-x/lighthouse
     - jenkins-x/go-scm
     - jenkins-x/jx-datadog
