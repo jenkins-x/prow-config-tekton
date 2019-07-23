@@ -590,6 +590,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/dex:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/lighthouse:
   - approve
   - heart
