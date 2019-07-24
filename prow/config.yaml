@@ -723,10 +723,16 @@ presubmits:
     trigger: (?m)^/test( helm3),?(s+|$)
   - agent: tekton
     always_run: false
-    context: terraform
-    name: terraform
-    rerun_command: /test terraform
-    trigger: (?m)^/test( terraform),?(s+|$)
+    context: terraform-static
+    name: terraform-static
+    rerun_command: /test terraform-static
+    trigger: (?m)^/test( terraform)-static,?(s+|$)
+  - agent: tekton
+    always_run: false
+    context: terraform-tekton
+    name: terraform-tekton
+    rerun_command: /test terraform-tekton
+    trigger: (?m)^/test( terraform-tekton),?(s+|$)
   - agent: tekton
     always_run: false
     context: boot-local
