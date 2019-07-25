@@ -734,13 +734,13 @@ presubmits:
     rerun_command: /test terraform-tekton
     trigger: (?m)^/test( terraform-tekton),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: boot-local
     name: boot-local
     rerun_command: /test boot-local
     trigger: (?m)^/test( boot| boot-local),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: boot-vault
     name: boot-vault
     rerun_command: /test boot-vault
@@ -750,19 +750,19 @@ presubmits:
     context: boot-lh
     name: boot-lh
     rerun_command: /test boot-lh
-    trigger: (?m)^/test( boot| boot-lh),?(s+|$)
+    trigger: (?m)^/test( boot| boot-lh| lighthouse),?(s+|$)
   - agent: tekton
     always_run: false
     context: boot-lh-ghe
     name: boot-lh-ghe
     rerun_command: /test boot-lh-ghe
-    trigger: (?m)^/test( boot| boot-lh-ghe),?(s+|$)
+    trigger: (?m)^/test( boot| boot-lh-ghe| lighthouse),?(s+|$)
   - agent: tekton
     always_run: false
     context: boot-lh-bs
     name: boot-lh-bs
     rerun_command: /test boot-lh-bs
-    trigger: (?m)^/test( boot| boot-lh-bs),?(s+|$)
+    trigger: (?m)^/test( boot| boot-lh-bs| lighthouse),?(s+|$)
   jenkins-x/environment-tekton-mole-dev:
   - agent: tekton
     always_run: true
