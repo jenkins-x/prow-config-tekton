@@ -1294,6 +1294,7 @@ tide:
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
+    - jenkins-x/jenkins-x-builders-ml
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/homebrew-jx
