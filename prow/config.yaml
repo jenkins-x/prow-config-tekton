@@ -291,6 +291,12 @@ postsubmits:
     - master
     context: ""
     name: promotion
+  jenkins-x/jenkins-x-versions:
+    - agent: tekton
+      branches:
+      - master
+      context: ""
+      name: promotion
   jenkins-x-apps/jx-app-sonarqube:
   - agent: tekton
     context: tekton
