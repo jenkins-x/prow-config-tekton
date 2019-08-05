@@ -279,12 +279,6 @@ postsubmits:
     - master
     context: ""
     name: promotion
-  jenkins-x/environment-tekton-mole-production:
-  - agent: tekton
-    branches:
-    - master
-    context: ""
-    name: promotion
   jenkins-x/environment-tekton-mole-staging:
   - agent: tekton
     branches:
