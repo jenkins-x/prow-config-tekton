@@ -22,6 +22,8 @@ lgtm:
 - repos:
   - cloudbees/jxui-backend
   - cloudbees/jxui-frontend
+  - cloudbees/jxui-backend-backup
+  - cloudbees/jxui-frontend-backup
   review_acts_as_lgtm: true
 - repos:
   - cloudbees/core-controller
@@ -52,6 +54,21 @@ plugins:
   - skip
   - yuks
   cloudbees/jxui-backend:
+  - approve
+  - assign
+  - blunderbuss
+  - heart
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  cloudbees/jxui-backend-backup:
   - approve
   - assign
   - blunderbuss
@@ -97,6 +114,21 @@ plugins:
   - cat
   - override
   cloudbees/jxui-frontend:
+  - approve
+  - assign
+  - blunderbuss
+  - heart
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  cloudbees/jxui-frontend-backup:
   - approve
   - assign
   - blunderbuss
