@@ -109,6 +109,12 @@ branch-protection:
         jxui-frontend:
           required_status_checks:
           contexts: ["tekton"]
+        jxui-backend-backup:
+          required_status_checks:
+          contexts: ["tekton"]
+        jxui-frontend-backup:
+          required_status_checks:
+          contexts: ["tekton"]
         jxui-ts-client:
           required_status_checks:
           contexts: ["tekton"]
@@ -249,6 +255,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  cloudbees/jxui-backend-backup:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   cloudbees/cloudbees-jenkins-x-distro:
   - agent: tekton
     context: tekton
@@ -262,6 +274,12 @@ postsubmits:
     branches:
     - master
   cloudbees/jxui-frontend:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  cloudbees/jxui-frontend-backup:
   - agent: tekton
     context: tekton
     name: tekton
@@ -638,6 +656,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  cloudbees/jxui-backend-backup:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   cloudbees/cloudbees-jenkins-x-distro:
   - agent: tekton
     always_run: true
@@ -653,6 +678,13 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   cloudbees/jxui-frontend:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  cloudbees/jxui-frontend-backup:
   - agent: tekton
     always_run: true
     context: tekton
@@ -1253,8 +1285,10 @@ tide:
     - jenkins-x/environment-tekton-mole-dev
     - jenkins-x/terraform-jx-templates-gke
     - cloudbees/jxui-backend
+    - cloudbees/jxui-backend-backup
     - cloudbees/cloudbees-jenkins-x-distro
     - cloudbees/jxui-frontend
+    - cloudbees/jxui-frontend-backup
     - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
     - cloudbees/jx-tenant-service 
@@ -1320,8 +1354,10 @@ tide:
     - needs-rebase
     repos:
     - cloudbees/jxui-backend
+    - cloudbees/jxui-backend-backup
     - cloudbees/cloudbees-jenkins-x-distro
     - cloudbees/jxui-frontend
+    - cloudbees/jxui-frontend-backup
     - cloudbees/jxui-ts-client
     - cloudbees/cb-app-slack
     - cloudbees/jx-tenant-service 
