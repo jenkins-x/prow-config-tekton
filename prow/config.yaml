@@ -768,13 +768,13 @@ presubmits:
     rerun_command: /test boot-vault
     trigger: (?m)^/test( all| boot| boot-vault),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: boot-lh
     name: boot-lh
     rerun_command: /test boot-lh
     trigger: (?m)^/test( boot| boot-lh| lighthouse),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: boot-lh-ghe
     name: boot-lh-ghe
     rerun_command: /test boot-lh-ghe
