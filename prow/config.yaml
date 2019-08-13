@@ -183,7 +183,7 @@ branch-protection:
             contexts: ["tekton"]
         jenkins-x-versions:
           required_status_checks:
-            contexts: ["static", "tiller", "gitops", "tekton", "ng"]    
+            contexts: ["static", "tiller", "gitops", "tekton", "ng", "boot-lh", "boot-lh-ghe", "boot-local", "boot-vault"]
         homebrew-jx:
           required_status_checks:
             contexts: ["tekton"]
@@ -1280,6 +1280,7 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jx
+    - jenkins-x/jenkins-x-versions
     - jenkins-x/environment-tekton-mole-production
     - jenkins-x/environment-tekton-mole-staging
   - labels:
