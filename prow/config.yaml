@@ -1280,6 +1280,7 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jx
+    - jenkins-x/jenkins-x-versions
     - jenkins-x/environment-tekton-mole-production
     - jenkins-x/environment-tekton-mole-staging
   - labels:
