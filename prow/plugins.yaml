@@ -997,6 +997,21 @@ plugins:
   - cat
   - dog
   - override
+  cloudbees/jx-app-ui:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   cloudbees/cb-app-slack:
   - approve
   - heart
