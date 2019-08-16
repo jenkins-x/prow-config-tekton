@@ -1060,8 +1060,8 @@ presubmits:
     always_run: false
     context: images
     name: images
-    rerun_command: /test images
-    trigger: (?m)^/test images,?(s+|$)
+    rerun_command: /generate images
+    trigger: (?m)^/generate images,?(s+|$)
   - agent: tekton
     always_run: true
     context: integration
